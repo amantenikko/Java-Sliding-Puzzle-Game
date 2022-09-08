@@ -24,9 +24,9 @@ public class SlidingPuzzle extends JFrame implements ActionListener
 	JLabel time = new JLabel("Time: 00h:00m:00s"),
 			credits = new JLabel("</> with <3 by Nikko Amante");
 	String imageList[] = { 
-		".img/1.jpg", ".img/2.jpg", ".img/3.jpg",
-		".img/4.jpg", ".img/5.jpg", ".img/6.jpg",
-		".img/7.jpg", ".img/8.jpg", ""
+		"./img/1.jpg", "./img/2.jpg", "./img/3.jpg",
+		"./img/4.jpg", "./img/5.jpg", "./img/6.jpg",
+		"./img/7.jpg", "./img/8.jpg", ""
 	};
 
 	Timer timer = new Timer(1000 , new ActionListener() {
