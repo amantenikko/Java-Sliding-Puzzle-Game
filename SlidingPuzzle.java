@@ -79,7 +79,7 @@ public class SlidingPuzzle extends JFrame implements ActionListener
 		credits.setBounds(((cellsize * col) / 2) - 65, (cellsize * row) + 45, cellsize * col, 20);
 		add(credits);
 
-		// shflBtn.doClick();
+		shflBtn.doClick();
 		gameover = false;
 		timer.setRepeats(true);
 
