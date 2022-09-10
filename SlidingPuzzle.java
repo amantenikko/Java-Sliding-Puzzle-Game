@@ -11,7 +11,7 @@ public class SlidingPuzzle extends JFrame implements ActionListener
 	boolean gameover;
 	int row = 3,
 		col = 3,
-		cellsize = 100,
+		cellsize = 200,
 		state = (row * col) - 1,
 		seed = 0,
 		hr,mm,ss;
