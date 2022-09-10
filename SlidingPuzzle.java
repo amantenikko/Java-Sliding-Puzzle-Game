@@ -57,7 +57,7 @@ public class SlidingPuzzle extends JFrame implements ActionListener
 			cell[i].setBorderPainted(true);
 			cell[i].addActionListener(this);
 			panel.add(cell[i]);
-			System.out.println(imageList[i]);
+			//System.out.println(imageList[i]);
 		}
 		cell[(row * col) - 1].setEnabled(false);
 		shuffler.remove(img[(row * col) - 1]);
