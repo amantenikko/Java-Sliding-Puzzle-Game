@@ -25,11 +25,13 @@ public class SlidingPuzzle extends JFrame implements ActionListener
 	JButton cell[] = new JButton[row * col],
 			shflBtn = new JButton("New Game");;
 	JLabel time = new JLabel("Time: 00h:00m:00s"),
-			credits = new JLabel("</> with <3 by Nikko Amante");
+			credits = new JLabel("</> with <3");
 	String imageList[] = new String[row * col];
 
-	Timer timer = new Timer(1000 , new ActionListener() {
-		public void actionPerformed(ActionEvent evt) {
+	Timer timer = new Timer(1000 , new ActionListener() 
+	{
+		public void actionPerformed(ActionEvent evt) 
+		{
 			ss++;
 			if (ss >= 60) {
 				mm++; ss = 0;
@@ -44,9 +46,11 @@ public class SlidingPuzzle extends JFrame implements ActionListener
 	});
 
 	SlidingPuzzle() {
-		for(int i=0; i < (row * col); i++) {
+		for(int i=0; i < (row * col); i++) 
+		{
 			imageList[i] = "/img/" + ( i + 1) + ".jpg";
-			if (getClass().getResource(imageList[i]) != null) {
+			if (getClass().getResource(imageList[i]) != null) 
+			{
 				img[i] = new ImageIcon(getClass().getResource(imageList[i]));
 				Image resizer = img[i].getImage();
 				img[i] = new ImageIcon(resizer.getScaledInstance(cellsize, cellsize, java.awt.Image.SCALE_SMOOTH));
@@ -92,12 +96,15 @@ public class SlidingPuzzle extends JFrame implements ActionListener
 		setResizable(false);
 	}
 	
-	public void actionPerformed(ActionEvent e) {
-		if (e.getSource()==shflBtn) {
+	public void actionPerformed(ActionEvent e) 
+	{
+		if (e.getSource()==shflBtn) 
+		{
 			timer.stop();
 			seed++;
 			Collections.shuffle(shuffler, new Random(seed));
-			for(int a = 0; a < (row * col)-1; a++) {
+			for(int a = 0; a < (row * col)-1; a++) 
+			{
 				cell[a].setEnabled(true);
 				cell[a].setIcon(shuffler.get(a));
 				cell[a].setBorderPainted(true);
@@ -113,7 +120,8 @@ public class SlidingPuzzle extends JFrame implements ActionListener
 			time.setText("Time: 00h:00m:00s");
 		}
 		
-		for(int a = 0; a < (row * col); a++) {
+		for(int a = 0; a < (row * col); a++) 
+		{
 			if (e.getSource()==cell[a])
 			{
 				if (gameover) return;
@@ -122,7 +130,8 @@ public class SlidingPuzzle extends JFrame implements ActionListener
 					if ((state == ((row * b) - 1) && (a == (row * b))) ||
 					 (state == ((row * b)) && (a == ((row * b) - 1)))) return;
 				}
-				if ((state == a + 1 || state == a - 1 || state == a + row || state == a - row)) {
+				if ((state == a + 1 || state == a - 1 || state == a + row || state == a - row)) 
+				{
 					cell[state].setIcon(cell[a].getIcon());
 					cell[state].setEnabled(true);
 					state = a;
@@ -133,13 +142,15 @@ public class SlidingPuzzle extends JFrame implements ActionListener
 		}
 
 		int counter = 0;
-		for(int i=0; i < (row * col); i++) {
+		for(int i=0; i < (row * col); i++) 
+		{
 			if (cell[i].getIcon() == img[i]) 
 				counter++;
 			else 
 				break;
 		}
-		if (counter == row * col) {
+		if (counter == row * col) 
+		{
 			timer.stop();
 			for(int a = 0; a < (row * col)-1; a++)
 				cell[a].setBorderPainted(false);
@@ -148,7 +159,8 @@ public class SlidingPuzzle extends JFrame implements ActionListener
 		}
 	}
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) 
+	{
 		new SlidingPuzzle();
 	}
 }
